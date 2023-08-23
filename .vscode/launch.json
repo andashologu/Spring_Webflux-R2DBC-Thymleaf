@@ -2,11 +2,21 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-ReactiveWebappApplication<com.example-reactive-webapp>",
+            "name": "Spring Boot-ReactiveWebappApplication<Getting started>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.example.reactivewebapp.ReactiveWebappApplication",
-            "projectName": "com.example-reactive-webapp",
+            "projectName": "Getting started",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ReactiveWebappApplication<Database config>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.reactivewebapp.ReactiveWebappApplication",
+            "projectName": "Database config",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.UUID;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -22,7 +20,7 @@ public class PostEntity {
 
     @Id
     @Column("id")
-    private UUID id;
+    private Long id;
 
     @Column("title")
     private String title;

@@ -16,8 +16,6 @@ import com.example.reactivewebapp.Repository.PostRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.UUID;
-
 @RestController
 @RequestMapping("/api")
 public class PostController {
@@ -25,16 +23,15 @@ public class PostController {
   @Autowired
   PostRepository postRepository;
 
-   
   @GetMapping("/posts")
   @ResponseStatus(HttpStatus.OK)
   public Flux<PostEntity> getAll() {
       return postRepository.findAll();
   }
 
-  @GetMapping("/post/{id}")
+  @GetMapping("/posts/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public Mono<PostEntity> getPost(@PathVariable("id") UUID id) {
+  public Mono<PostEntity> getPost(@PathVariable("id") Long id) {
     return postRepository.findById(id);
   }
 
