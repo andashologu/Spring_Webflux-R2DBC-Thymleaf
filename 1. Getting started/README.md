@@ -48,11 +48,11 @@ Controller class:
         
 To handle non-blocking requests in Spring, you can use the @Async annotation to annotate methods that should be executed asynchronously and use the TaskExecutor interface to control the execution of asynchronous tasks.
 
-        You can also use the Reactor (Mono, Flux) and Spring WebFlux.
+You can also use the Reactor (Mono, Flux) and Spring WebFlux.
 
-        Flux and Mono:
+Flux and Mono:
 
-        Spring Webflux uses Project Reactor as a reactive library. Spring WebFlux heavily uses two publishers:
+Spring Webflux uses Project Reactor as a reactive library. Spring WebFlux heavily uses two publishers:
 
         Mono: Returns 0 or 1 element.
         Flux: Returns 0…N elements.
@@ -60,15 +60,28 @@ To handle non-blocking requests in Spring, you can use the @Async annotation to 
 2. Functional: functional programming concepts, such as lambda expressions and functional interfaces, to define the routing and handling of requests.
     Create a controller class:
     
-    @Configuration
-    public class GreetingController {
-        @Bean
-        public RouterFunction<ServerResponse> routeHelloWorld() {
-            return route(GET("/hello"),
-                    request -> ServerResponse.ok()
-                            .contentType(MediaType.TEXT_PLAIN)
-                            .body(Mono.just("Hello, Reactive World!"), String.class));
-        }
-    }
+      @Configuration
+      public class GreetingController {
+          @Bean
+          public RouterFunction<ServerResponse> routeHelloWorld() {
+              return route(GET("/hello"),
+                      request -> ServerResponse.ok()
+                              .contentType(MediaType.TEXT_PLAIN)
+                              .body(Mono.just("Hello, Reactive World!"), String.class));
+          }
+      }
 
 - Locate Starter Class under source directory java/com/your-package-name.
+
+       import org.springframework.boot.SpringApplication;
+       import org.springframework.boot.autoconfigure.SpringBootApplication;
+     
+       @SpringBootApplication
+       public class Application {
+         	public static void main(String[] args) {
+         		    SpringApplication.run(Application.class, args);
+         	}
+      }
+- In this directory create a folder called 'server' and one called 'web'. Web will used for Thymleaf, and the Server will be used for integrating with KMP and Thymleaf.
+- Under Web create a folder called 'controller'. NB all folder names must be small cases and class names must start with Capital Letter for Each word.
+- 
