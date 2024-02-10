@@ -84,4 +84,27 @@ Spring Webflux uses Project Reactor as a reactive library. Spring WebFlux heavil
       }
 - In this directory create a folder called 'server' and one called 'web'. Web will used for Thymleaf, and the Server will be used for integrating with KMP and Thymleaf.
 - Under Web create a folder called 'controller'. NB all folder names must be small cases and class names must start with Capital Letter for Each word.
-- 
+- Under the Controller folder create a file and name HomeController and Copy and Paste the following:
+
+       import org.springframework.web.bind.annotation.GetMapping;
+       import org.springframework.web.bind.annotation.RestController;
+       
+       import reactor.core.publisher.Flux;
+       import reactor.core.publisher.Mono;
+       
+       @RestController
+       public class HomeController {
+           @GetMapping("/mono")
+           public Mono<String> getMonoResult() {
+               return Mono.just("Result from Mono");
+           }
+       
+           @GetMapping("/flux")
+           public Flux<String> getFluxResult() {
+               return Flux.just("Result from Flux");
+           }
+       }
+
+  - Rerun the project.
+  - On localhost:8080/mono and localhost:8080/flux you should get results
+  
